@@ -7,7 +7,6 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
     private static T instance = null;
     protected virtual bool dontDestroyOnLoad { get; } = false;
-    protected virtual bool destroyNewInstances { get; } = false;
 
     public static T Instance
     {
@@ -35,10 +34,7 @@ public class Singleton<T> : MonoBehaviour where T : Singleton<T>
     {
         if (instance != null)
         {
-            if (destroyNewInstances)
-            {
-                Destroy(this.gameObject);
-            }
+            Destroy(this.gameObject);
         }
         else
         {
